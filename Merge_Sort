@@ -13,7 +13,7 @@ int b[bn];
 
 for(int i = 0;i<an;i++)
 {
-a[i] = v[l + 1];
+a[i] = v[l + i];
 }
 for(int j = 0;j<bn;j++)
 {
@@ -24,7 +24,7 @@ int j = 0;
 int k = l;
 while(i<an &&j<bn)
 {
-if(a[i]<b[j])
+if(a[i]<=b[j])
 {
 v[k++] = a[i++];
 }
@@ -49,7 +49,7 @@ if(l>=r)
 {
 return;
 }
-int mid = (l + r)/2; // we are seperating the vector into two parts 
+int mid = l + ( r - l)/2; // we are seperating the vector into two parts 
 Merge_Sort(v,l,mid); // Sorting till mid
 Merge_Sort(v,mid + 1,r); // Sorting till the end
 Merge(v,l,mid,r); // Merging the sub vectors
@@ -72,7 +72,7 @@ Merge_Sort(v,0,n - 1);//Here we r passing the vector,first index and the last in
 cout<<"The sorted vector is:";
 for(int i = 0;i<n;i++)
 {
-cout<<v[i];
+cout<<v[i]<<" ";
 }
 return 0;
 }
