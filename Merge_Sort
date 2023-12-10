@@ -17,7 +17,7 @@ a[i] = v[l + 1];
 }
 for(int j = 0;j<bn;j++)
 {
-b[i] = v[mid + i + j];
+b[j] = v[mid + 1 + j];
 }
 int i = 0;
 int j = 0;
