@@ -1,1 +1,72 @@
 
+#include<iostream>
+#include<vector>
+using namespace std;
+
+void Merge(vector<int>&v,int l,int mid,int r)
+{
+//Creating sub arrays
+int an = mid - l + 1;
+int bn = r - mid;
+int a[an];
+int b[bn];
+
+for(int i = 0;i<an;i++)
+{
+a[i] = v[l + 1];
+}
+for(int j = 0;j<bn;j++)
+{
+b[i] = v[mid + i + j];
+}
+int i = 0;
+int j = 0;
+int k = l;
+while(i<an &&j<bn)
+{
+if(a[i]<b[j])
+{
+v[k++] = a[i++];
+}
+else{
+v[k++] = b[j++];
+}
+}
+while(i<an)
+{
+v[k++] = a[i++];
+}
+while(j<bn)
+{
+v[k++] = b[j++];
+}
+}
+
+void Merge_Sort(vector<int>&v,int l,int r)
+{
+//Base case
+if(l>=r)
+{
+return;
+}
+int mid = (l + r)/2; // we are seperating the vector into two parts 
+Merge_Sort(v,l,mid); // Sorting till mid
+Merge_Sort(v,mid + 1,r); // Sorting till the end
+Merge(v,l,mid,r); // Merging the sub vectors
+}
+
+int main()
+{
+int n;
+cout<<"Enter the size of the vector";
+cin>>n;
+
+cout<<"Enter the elements of the vector";
+for(int i = 0;i<n;i++)
+{
+cout<<v[i];
+}
+
+Merge_Sort(v,0,n - 1);//Here we r passing the vector,first index and the last index
+return 0;
+}
