@@ -1,1 +1,41 @@
 
+#include<iostream>
+#include<vector>
+using namespace std;
+
+void Selection_Sort(vector<int>&v)
+{
+for(int i = 1;i<v.size();i++)
+{
+int current = v[i];
+int j = i - 1;
+while(j>=0 && arr[j]>current)
+{
+v[j + 1] = v[j];
+j--;
+}
+v[j + 1] = current;
+}
+
+int main(
+{
+int n;
+cout<<"Enter the size of the vector";
+cin>>n;
+
+cout<<"Enter the elements of the vector";
+vector<int>v;
+for(int i = 0;i<n;i++)
+{
+cin>>v[i];
+}
+
+Selection_Sort(v);
+
+cout<<"The sorted vector is :";
+for(int i = 0;i<v;i++)
+{
+cout<<v[i];
+}
+return 0;
+}
