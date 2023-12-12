@@ -1,1 +1,52 @@
 
+#include<iostream>
+using namespace std;
+
+int partition(vector<int>&v,int first,int last)
+{
+pi = v[last];
+int i = first - 1;
+int j = first;
+for(;j<last;j++)
+{
+if(v[j]<pi)
+{
+i++;
+swap(v[i],v[j]);
+}
+}
+//Now here i + 1 will be the correct posititon of pivot
+swap(v[i + 1],v[last]);  
+return i + 1;
+}
+void Quick_sort(vector<int>&v,int first,int last)
+{
+if(first>=last)
+{
+return;
+}
+int pivot = partitioin(v,first,last);
+Quick_sort(v,first,pivot - 1);
+Quick_sort(v,pivot + 1,last);
+}
+
+int main()
+{
+int n;
+cout<<"Enter the size of the vector";
+cin>>n;
+
+cout<<"Enter the elements of the vector";
+vector<int>v;
+for(int i = 0;i<n;i++)
+{
+cin>>v[i];
+}
+Quick_sort(v,0,n - 1)
+cout<<"The sorted elements are";
+for(int i = 0;i<n;i++)
+{
+cout<<v[i];
+}
+retunrn 0;
+}
